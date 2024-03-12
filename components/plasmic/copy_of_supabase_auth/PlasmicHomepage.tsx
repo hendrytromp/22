@@ -180,9 +180,11 @@ function PlasmicHomepage__RenderFunc(props: {
     getProducts: usePlasmicDataOp(() => {
       return {
         sourceId: "x5nEbmUYaoDXKkd9QGuySe",
-        opId: "3a0ad540-5bdc-461d-8865-216097541ef7",
-        userArgs: {},
-        cacheKey: `plasmic.$.3a0ad540-5bdc-461d-8865-216097541ef7.$.`,
+        opId: "1cb02f42-b0e0-49ff-a48e-6f31b756d6bc",
+        userArgs: {
+          filters: [$queries.getUsers.data[0].company_id]
+        },
+        cacheKey: `plasmic.$.1cb02f42-b0e0-49ff-a48e-6f31b756d6bc.$.`,
         invalidatedKeys: null,
         roleId: "92c7b7c2-6996-431c-8d32-0985b90bc896"
       };
