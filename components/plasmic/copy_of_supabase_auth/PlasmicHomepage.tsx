@@ -59,7 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
   executePlasmicDataOp,
   usePlasmicDataOp,
@@ -176,7 +175,6 @@ function PlasmicHomepage__RenderFunc(props: {
     $queries: $queries,
     $refs
   });
-  const dataSourcesCtx = usePlasmicDataSourceContext();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     getProducts: usePlasmicDataOp(() => {
@@ -495,7 +493,7 @@ function withPlasmicPageGuard<P extends object>(
 ) {
   const PageGuard: React.FC<P> = props => (
     <PlasmicPageGuard__
-      minRole={"92c7b7c2-6996-431c-8d32-0985b90bc896"}
+      minRole={null}
       appId={"59Hru9wnGgWyNEn96uQ7cS"}
       authorizeEndpoint={"https://studio.plasmic.app/authorize"}
       canTriggerLogin={false}

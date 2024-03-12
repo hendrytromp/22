@@ -514,7 +514,7 @@
           "projectId": "59Hru9wnGgWyNEn96uQ7cS",
           "renderModuleFilePath": "plasmic/copy_of_supabase_auth/PlasmicHomepage.tsx",
           "importSpec": {
-            "modulePath": "../pages/products.tsx"
+            "modulePath": "../pages/index.tsx"
           },
           "cssFilePath": "plasmic/copy_of_supabase_auth/PlasmicHomepage.module.css",
           "scheme": "blackbox",
