@@ -361,7 +361,7 @@ function PlasmicAuthForm__RenderFunc(props: {
               {...child$Props}
             >
               <FormItemWrapper
-                className={classNames("__wab_instance", sty.formField___2SlQ)}
+                className={classNames("__wab_instance", sty.formField__ubyg5)}
                 label={"Email"}
                 name={"email"}
               >
@@ -370,7 +370,7 @@ function PlasmicAuthForm__RenderFunc(props: {
                 />
               </FormItemWrapper>
               <FormItemWrapper
-                className={classNames("__wab_instance", sty.formField__vuZ1C)}
+                className={classNames("__wab_instance", sty.formField__mJaXe)}
                 label={"Password"}
                 name={"password"}
               >
@@ -389,9 +389,9 @@ function PlasmicAuthForm__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__jwAjH,
+                    sty.text__maJTj,
                     {
-                      [sty.textmode_signUp__jwAjHbkKf]: hasVariant(
+                      [sty.textmode_signUp__maJTjbkKf]: hasVariant(
                         $state,
                         "mode",
                         "signUp"
