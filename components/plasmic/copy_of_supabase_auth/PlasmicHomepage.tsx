@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
   executePlasmicDataOp,
   usePlasmicDataOp,
@@ -175,28 +176,29 @@ function PlasmicHomepage__RenderFunc(props: {
     $queries: $queries,
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     getProducts: usePlasmicDataOp(() => {
       return {
         sourceId: "x5nEbmUYaoDXKkd9QGuySe",
-        opId: "f8427025-204f-47ee-8895-aab1740974e8",
+        opId: "3a0ad540-5bdc-461d-8865-216097541ef7",
         userArgs: {},
-        cacheKey: `plasmic.$.f8427025-204f-47ee-8895-aab1740974e8.$.`,
+        cacheKey: `plasmic.$.3a0ad540-5bdc-461d-8865-216097541ef7.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "92c7b7c2-6996-431c-8d32-0985b90bc896"
       };
     }),
     getUsers: usePlasmicDataOp(() => {
       return {
         sourceId: "x5nEbmUYaoDXKkd9QGuySe",
-        opId: "7d07bc06-d36d-437f-b734-95cfa8c61fb6",
+        opId: "35cc2e1b-81e0-430b-8966-3bfffeef9874",
         userArgs: {
           filters: [$queries.getProducts.data[0].company_id]
         },
-        cacheKey: `plasmic.$.7d07bc06-d36d-437f-b734-95cfa8c61fb6.$.`,
+        cacheKey: `plasmic.$.35cc2e1b-81e0-430b-8966-3bfffeef9874.$.`,
         invalidatedKeys: null,
-        roleId: null
+        roleId: "92c7b7c2-6996-431c-8d32-0985b90bc896"
       };
     })
   };
@@ -493,7 +495,7 @@ function withPlasmicPageGuard<P extends object>(
 ) {
   const PageGuard: React.FC<P> = props => (
     <PlasmicPageGuard__
-      minRole={null}
+      minRole={"92c7b7c2-6996-431c-8d32-0985b90bc896"}
       appId={"59Hru9wnGgWyNEn96uQ7cS"}
       authorizeEndpoint={"https://studio.plasmic.app/authorize"}
       canTriggerLogin={false}

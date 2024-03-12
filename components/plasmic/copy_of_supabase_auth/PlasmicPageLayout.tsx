@@ -64,6 +64,11 @@ import { LoadingBoundary } from "@plasmicpkgs/plasmic-basic-components";
 import AuthButton from "../../AuthButton"; // plasmic-import: 9IgivLkzm2sZ/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
+import {
+  UnnamedGlobalGroupOfVariantsValue,
+  useUnnamedGlobalGroupOfVariants
+} from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants"; // plasmic-import: eYYFOvaK8XCu/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -129,6 +134,10 @@ function PlasmicPageLayout__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const globalVariants = ensureGlobalVariants({
+    unnamedGlobalGroupOfVariants: useUnnamedGlobalGroupOfVariants()
+  });
+
   return (
     <RichLayout
       data-plasmic-name={"root"}
@@ -150,7 +159,15 @@ function PlasmicPageLayout__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        {
+          [sty.rootglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
+            hasVariant(
+              globalVariants,
+              "unnamedGlobalGroupOfVariants",
+              "unnamedVariant"
+            )
+        }
       )}
       logoElement={
         <Icon2Icon

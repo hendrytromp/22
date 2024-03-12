@@ -110,7 +110,7 @@ export default function GlobalContextsProvider(
       wireframe={
         antdConfigProviderProps && "wireframe" in antdConfigProviderProps
           ? antdConfigProviderProps.wireframe!
-          : false
+          : true
       }
     >
       {children}
