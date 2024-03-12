@@ -94,7 +94,6 @@ export type PlasmicHomepage__OverridesType = {
   pageLayout?: Flex__<typeof PageLayout>;
   table?: Flex__<typeof RichTable>;
   pageMetadataOverride?: Flex__<typeof PlasmicHead>;
-  table2?: Flex__<typeof RichTable>;
 };
 
 export interface DefaultHomepageProps {}
@@ -161,38 +160,6 @@ function PlasmicHomepage__RenderFunc(props: {
       },
       {
         path: "table.selectedRowKeys",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("selectedRowKeys", RichTable_Helpers)
-      },
-      {
-        path: "table2.selectedRowKey",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("selectedRowKey", RichTable_Helpers)
-      },
-      {
-        path: "table2.selectedRow",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("selectedRow", RichTable_Helpers)
-      },
-      {
-        path: "table2.selectedRows",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-
-        onMutate: generateOnMutateForSpec("selectedRows", RichTable_Helpers)
-      },
-      {
-        path: "table2.selectedRowKeys",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
@@ -289,6 +256,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     const child$Props = {
+                      canSelectRows: "click",
                       className: classNames("__wab_instance", sty.table),
                       data: (() => {
                         try {
@@ -303,6 +271,56 @@ function PlasmicHomepage__RenderFunc(props: {
                           throw e;
                         }
                       })(),
+                      fields: [
+                        { key: "name", fieldId: "name" },
+                        { key: "id", fieldId: "id" },
+                        { key: "created_at", fieldId: "created_at" },
+                        { key: "company_id", fieldId: "company_id" },
+                        { key: "created_by", fieldId: "created_by" },
+                        { key: "price", fieldId: "price" },
+                        { key: "cost", fieldId: "cost" },
+                        { key: "image", fieldId: "image" }
+                      ],
+                      onRowClick: async (rowKey, row, event) => {
+                        const $steps = {};
+
+                        $steps["updateTableSelectedRowKey"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["table", "selectedRowKey"]
+                                },
+                                operation: 0
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateTableSelectedRowKey"] != null &&
+                          typeof $steps["updateTableSelectedRowKey"] ===
+                            "object" &&
+                          typeof $steps["updateTableSelectedRowKey"].then ===
+                            "function"
+                        ) {
+                          $steps["updateTableSelectedRowKey"] = await $steps[
+                            "updateTableSelectedRowKey"
+                          ];
+                        }
+                      },
                       onRowSelectionChanged: async (...eventArgs: any) => {
                         generateStateOnChangePropForCodeComponents(
                           $state,
@@ -389,101 +407,6 @@ function PlasmicHomepage__RenderFunc(props: {
                       sty.pageMetadataOverride
                     )}
                   />
-
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.table2),
-                      data: (() => {
-                        try {
-                          return $queries.getUsers;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })(),
-                      onRowSelectionChanged: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRowKey",
-                          ["table2", "selectedRowKey"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRow",
-                          ["table2", "selectedRow"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRows",
-                          ["table2", "selectedRows"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "selectedRowKeys",
-                          ["table2", "selectedRowKeys"],
-                          RichTable_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      scopeClassName: sty["table2__instance"],
-                      selectedRowKey: generateStateValueProp($state, [
-                        "table2",
-                        "selectedRowKey"
-                      ]),
-                      selectedRowKeys: generateStateValueProp($state, [
-                        "table2",
-                        "selectedRowKeys"
-                      ]),
-                      themeResetClassName: classNames(
-                        projectcss.root_reset,
-                        projectcss.root_reset_tags,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
-                        projectcss.plasmic_tokens,
-                        plasmic_antd_5_hostless_css.plasmic_tokens,
-                        plasmic_plasmic_rich_components_css.plasmic_tokens
-                      )
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "selectedRowKey",
-                          plasmicStateName: "table2.selectedRowKey"
-                        },
-                        {
-                          name: "selectedRow",
-                          plasmicStateName: "table2.selectedRow"
-                        },
-                        {
-                          name: "selectedRows",
-                          plasmicStateName: "table2.selectedRows"
-                        },
-                        {
-                          name: "selectedRowKeys",
-                          plasmicStateName: "table2.selectedRowKeys"
-                        }
-                      ],
-                      [],
-                      RichTable_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <RichTable
-                        data-plasmic-name={"table2"}
-                        data-plasmic-override={overrides.table2}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
                 </React.Fragment>
               )}
             </DataCtxReader__>
@@ -495,11 +418,10 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "table", "pageMetadataOverride", "table2"],
-  pageLayout: ["pageLayout", "table", "pageMetadataOverride", "table2"],
+  root: ["root", "pageLayout", "table", "pageMetadataOverride"],
+  pageLayout: ["pageLayout", "table", "pageMetadataOverride"],
   table: ["table"],
-  pageMetadataOverride: ["pageMetadataOverride"],
-  table2: ["table2"]
+  pageMetadataOverride: ["pageMetadataOverride"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -509,7 +431,6 @@ type NodeDefaultElementType = {
   pageLayout: typeof PageLayout;
   table: typeof RichTable;
   pageMetadataOverride: typeof PlasmicHead;
-  table2: typeof RichTable;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -592,7 +513,6 @@ export const PlasmicHomepage = Object.assign(
     pageLayout: makeNodeComponent("pageLayout"),
     table: makeNodeComponent("table"),
     pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
-    table2: makeNodeComponent("table2"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

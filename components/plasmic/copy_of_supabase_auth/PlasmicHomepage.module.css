@@ -33,20 +33,12 @@
   max-width: 100%;
   object-fit: cover;
   position: relative;
-  min-width: 0;
+  grid-column-start: 3 !important;
+  grid-column-end: -3 !important;
   padding: 16px;
 }
 .pageMetadataOverride:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
   position: relative;
-}
-.table2:global(.__wab_instance) {
-  width: 100%;
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  position: relative;
-  min-width: 0;
-  padding: 16px;
 }

@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -41,7 +41,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -95,7 +96,8 @@
           }
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -495,7 +497,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "59Hru9wnGgWyNEn96uQ7cS",
@@ -570,34 +573,6 @@
           "cssFilePath": "plasmic/copy_of_supabase_auth/PlasmicAuthButton.module.css",
           "scheme": "blackbox",
           "componentType": "component"
-        },
-        {
-          "id": "1fIDho-BHXs9",
-          "name": "Protected",
-          "type": "managed",
-          "projectId": "59Hru9wnGgWyNEn96uQ7cS",
-          "renderModuleFilePath": "plasmic/copy_of_supabase_auth/PlasmicProtected.tsx",
-          "importSpec": {
-            "modulePath": "../pages/protected.tsx"
-          },
-          "cssFilePath": "plasmic/copy_of_supabase_auth/PlasmicProtected.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/protected"
-        },
-        {
-          "id": "naKWtDOXVAuk",
-          "name": "Ssr",
-          "type": "managed",
-          "projectId": "59Hru9wnGgWyNEn96uQ7cS",
-          "renderModuleFilePath": "plasmic/copy_of_supabase_auth/PlasmicSsr.tsx",
-          "importSpec": {
-            "modulePath": "../pages/ssr.tsx"
-          },
-          "cssFilePath": "plasmic/copy_of_supabase_auth/PlasmicSsr.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/ssr"
         }
       ],
       "icons": [
