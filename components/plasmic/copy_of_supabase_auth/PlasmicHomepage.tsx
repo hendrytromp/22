@@ -179,20 +179,10 @@ function PlasmicHomepage__RenderFunc(props: {
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
     getProducts: usePlasmicDataOp(() => {
       return {
-        sourceId: "x5nEbmUYaoDXKkd9QGuySe",
-        opId: "ab65986d-1ebf-437d-a51e-87d2d6f7480d",
+        sourceId: "8ZTda5XKqRdrTJJzCC4muu",
+        opId: "25579f64-abc3-4a7d-bf6b-003e72f180c2",
         userArgs: {},
-        cacheKey: `plasmic.$.ab65986d-1ebf-437d-a51e-87d2d6f7480d.$.`,
-        invalidatedKeys: null,
-        roleId: "92c7b7c2-6996-431c-8d32-0985b90bc896"
-      };
-    }),
-    getUsers: usePlasmicDataOp(() => {
-      return {
-        sourceId: "x5nEbmUYaoDXKkd9QGuySe",
-        opId: "0d84534b-fe8c-46c4-8445-f01adffa1c5b",
-        userArgs: {},
-        cacheKey: `plasmic.$.0d84534b-fe8c-46c4-8445-f01adffa1c5b.$.`,
+        cacheKey: `plasmic.$.25579f64-abc3-4a7d-bf6b-003e72f180c2.$.`,
         invalidatedKeys: null,
         roleId: "92c7b7c2-6996-431c-8d32-0985b90bc896"
       };
